@@ -6,11 +6,13 @@ pipeline {
     }
     stages {
         stage("Checkout code") {
-            scmInfo = checkout scm
             steps {
-                echo "scm : ${scmInfo}"
-                echo "${scmInfo.GIT_COMMIT}"
-                sendTelegram('<b>Test Message:</b> Building', env.TOKEN, env.CHAT_ID)
+                script {
+                    def scmInfo = checkout scm
+                    echo "scm : ${scmInfo}"
+                    echo "${scmInfo.GIT_COMMIT}"
+                    sendTelegram('<b>Test Message:</b> Building', env.TOKEN, env.CHAT_ID)
+                }
             }
         }
     }
