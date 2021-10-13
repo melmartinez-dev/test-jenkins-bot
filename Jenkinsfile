@@ -5,8 +5,11 @@ pipeline {
         CHAT_ID = '-1001403425116'
     }
     stages {
-        stage('Hello') {
+        stage("Checkout code") {
             steps {
+                scmInfo = checkout scm
+                echo "scm : ${scmInfo}"
+                echo "${scmInfo.GIT_COMMIT}"
                 sendTelegram('<b>Test Message:</b> Building', env.TOKEN, env.CHAT_ID)
             }
         }
