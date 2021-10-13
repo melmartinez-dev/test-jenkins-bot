@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     def scmInfo = checkout scm
-                    sendTelegram("<b>⚒ Starting Deployment ⚒</b> \n<code><b>Branch: </b>${scmInfo.GIT_BRANCH}\n<b>Commit: </b>${scmInfo.GIT_COMMIT}</code>\n<b>Repository: </b>${scmInfo.GIT_URL}", env.TOKEN, env.CHAT_ID)
+                    sendTelegram("<b>🏗 Starting Deployment 🏗</b> \n<code>Branch: ${scmInfo.GIT_BRANCH}\nCommit: ${scmInfo.GIT_COMMIT}\nRepository: ${scmInfo.GIT_URL}</code>", env.TOKEN, env.CHAT_ID)
                 }
             }
         }
