@@ -16,10 +16,10 @@ pipeline {
     }
     post {
         success {
-            sendTelegram("<b>🔥 Deployment Successfull 🔥</b>\n\nSee job at <a href=\"${env.JOB_URL}\">${env.JOB_URL}</a>", env.TOKEN, env.CHAT_ID) 
+            sendTelegram("<b>🔥 Deployment Successfull 🔥</b>\n\nSee job at <a href=\"${env.JOB_URL}\">${env.BUILD_URL}</a>", env.TOKEN, env.CHAT_ID) 
         }
         failure {
-            sendTelegram("<b>🚫 Deployment failed 🚫</b>\n\nSee job at <a href=\"${env.JOB_URL}\">${env.JOB_URL}</a>", env.TOKEN, env.CHAT_ID)
+            sendTelegram("<b>🚫 Deployment failed 🚫</b>\n\nSee job at <a href=\"${env.JOB_URL}\">${env.BUILD_URL}</a>", env.TOKEN, env.CHAT_ID)
         }
     }
 }
